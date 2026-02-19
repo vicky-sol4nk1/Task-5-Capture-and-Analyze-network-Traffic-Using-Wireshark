@@ -40,14 +40,10 @@ sudo apt install wireshark
 ## Step 2: Select Network Interface
 
 * Opened Wireshark.
-* Selected active network interface (Wi-Fi/Ethernet).
-* Started packet capture.
+* Selected active network interface (Wi-Fi/Ethernet) in my case i select etho0.
+* now wireshark Started packet capturing.
 
-📸 **Screenshot 2 Required:**
-👉 *Wireshark showing available interfaces before starting capture.*
 
-📸 **Screenshot 3 Required:**
-👉 *Wireshark capturing live packets (packets scrolling).*
 
 ---
 
@@ -56,26 +52,33 @@ sudo apt install wireshark
 * Opened a web browser and visited google.com.
 * Used ping command to generate ICMP traffic:
 
-**Windows:**
-
-```
+# Visiting a website http://testphp.vulnweb.com ( it's a intenstionaly insecure site used for practice and learning purpose) for generating http trafic
+# send echo request using ping
+```bash
 ping google.com
 ```
+![ping](screenshots/ping.png)
 
-**Linux:**
-
+# send dns queries using dig tools
+qurie for A (ip adress) record of google.com
+```bash
+dig A google.com
 ```
-ping google.com
-```
+![ping](screenshots/a-record.png)
 
-📸 **Screenshot 4 Required:**
-👉 *Command Prompt showing successful ping replies.*
+querie for MX (mail server) record of google.com
+```bash
+dig mx google.com
+```
+![ping](screenshots/mx-record.png)
+
+
 
 ---
 
 ## Step 4: Stop Capture
 
-* Stopped packet capture after approximately 1 minute.
+* Stopped packet capture after generating trafic.
 
 📸 **Screenshot 5 Required:**
 👉 *Captured packets visible after stopping capture.*
@@ -87,36 +90,23 @@ ping google.com
 Applied the following filters in the filter bar:
 
 * `dns`
-* `tcp`
+  ![ping](screenshots/dns.png)
+
 * `http`
+  ![ping](screenshots/http.png)
+
+  we clearly see a plain text password which i entered 
+
 * `icmp`
+  ![ping](screenshots/icmp.png)
 
-📸 **Screenshot 6 Required:**
-👉 *DNS filter applied showing DNS packets.*
 
-📸 **Screenshot 7 Required:**
-👉 *TCP filter applied showing TCP handshake packets.*
+icmp traffic:
 
-📸 **Screenshot 8 Required:**
-👉 *ICMP filter applied showing Echo Request and Echo Reply.*
-
-(If HTTP visible, add one more screenshot.)
 
 ---
 
-## Step 6: Protocol Hierarchy Statistics
 
-* Navigated to:
-
-  ```
-  Statistics → Protocol Hierarchy
-  ```
-* Observed distribution of protocols.
-
-📸 **Screenshot 9 Required:**
-👉 *Protocol Hierarchy window showing percentage of TCP, UDP, DNS, etc.*
-
----
 
 ## Step 7: Export Capture File
 
@@ -131,8 +121,8 @@ Applied the following filters in the filter bar:
   network_capture.pcapng
   ```
 
-📸 **Screenshot 10 Required:**
-👉 *Save As window showing .pcapng format selected.*
+![ping](screenshots/traffic.png)
+
 
 ---
 
