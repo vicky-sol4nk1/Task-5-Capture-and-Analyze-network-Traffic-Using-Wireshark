@@ -27,14 +27,13 @@ Official website se download karo:
 
 Install normally (Npcap install karna mandatory hai).
 
-🔹 Linux (Ubuntu):
+🔹 Linux (Ubuntu) or kali linux:
 ```bash
 sudo apt update
 sudo apt install wireshark
 ```
 
-📸 **Screenshot 1 Required:**
-👉 *Wireshark installation completed screen OR Wireshark home interface after opening.*
+![wireshark](screenshots/wireshark-opening.png)
 
 ---
 
